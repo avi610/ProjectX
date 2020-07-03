@@ -1,9 +1,5 @@
 <template>
-  <v-app>
-    <v-content>
-      <Home/>
-    </v-content>
-  </v-app>
+  <Home/>
 </template>
 
 <script>
