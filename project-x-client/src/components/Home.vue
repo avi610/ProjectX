@@ -2,7 +2,8 @@
   <div>
     <b-form id="item-search">
       <b-form-group>
-        <b-form-input v-model="item" placeholder="Search..."></b-form-input>
+        <b-form-input v-model="item" placeholder="Search..."
+          v-bind:autocomplete="autocomplete"></b-form-input>
       </b-form-group>
       <b-button @click="search" variant="primary">Submit</b-button>
     </b-form>
@@ -26,6 +27,7 @@ export default {
     return {
       item: '',
       loading: false,
+      autocomplete: ['Whip', 'Cannonball'],
     };
   },
   methods: {
@@ -33,8 +35,8 @@ export default {
       // Do actual search request
       console.log(this.item);
       this.loading = true;
-      this.baseUrl = 'http://services.runescape.com/m=itemdb_oldschool';
-      this.itemUrl = '/api/catalogue/detail.json?item=';
+      this.baseUrl = 'http://localhost:3000';
+      this.itemUrl = '/item/';
       axios
         // eslint-disable-next-line prefer-template
         .get(this.baseUrl + this.itemUrl + this.item)
